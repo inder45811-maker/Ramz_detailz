@@ -34,3 +34,5 @@ export default function SnowFoamCannon({ className = '', size = 1 }) {
     </div>
   )
 }
+
+

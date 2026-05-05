@@ -20,7 +20,7 @@ function PriceItem({ price, name, description, gold = false }) {
         <span
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            color: '#FFFFFF',
+            color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
             fontWeight: 600,
             fontSize: '0.95rem',
           }}
@@ -32,7 +32,7 @@ function PriceItem({ price, name, description, gold = false }) {
         <p
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            color: '#B0B0B0',
+            color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
             fontSize: '0.82rem',
             lineHeight: 1.6,
             marginTop: '0.25rem',
@@ -290,7 +290,7 @@ export default function Pricing() {
                 fontFamily: "'DM Sans', sans-serif",
                 fontWeight: 800,
                 fontSize: 'clamp(48px, 6vw, 80px)',
-                color: '#FFFFFF',
+                color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
                 lineHeight: 1.05,
               }}
             >
@@ -299,7 +299,7 @@ export default function Pricing() {
             <p
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                color: '#B0B0B0',
+                color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
                 marginTop: '0.5rem',
                 fontSize: '1rem',
               }}
@@ -340,7 +340,7 @@ export default function Pricing() {
           <p
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              color: '#B0B0B0',
+              color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
               fontSize: '0.8rem',
               lineHeight: 1.6,
               paddingLeft: '1.75rem',
@@ -369,3 +369,5 @@ export default function Pricing() {
     </section>
   )
 }
+
+

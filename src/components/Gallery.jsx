@@ -56,7 +56,7 @@ function GalleryCard({ item }) {
 
       {/* BEFORE label */}
       <span
-        className="absolute top-3 left-3 z-30 px-2 py-1 rounded text-xs text-gray-400"
+        className="absolute top-3 left-3 z-30 px-2 py-1 rounded text-xs text-gold-metallic"
         style={{
           background: 'rgba(0,0,0,0.6)',
           fontFamily: "'Bebas Neue', sans-serif",
@@ -84,7 +84,7 @@ function GalleryCard({ item }) {
         style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)' }}
       >
         <span
-          className="text-white"
+          className="text-gold-metallic"
           style={{
             fontFamily: "'Bebas Neue', sans-serif",
             fontSize: '18px',
@@ -124,7 +124,7 @@ export default function Gallery() {
           </p>
           <h2
             ref={headlineRef}
-            className="reveal font-extrabold text-white mt-3"
+            className="reveal font-extrabold text-gold-metallic mt-3"
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontWeight: 800,
@@ -136,7 +136,7 @@ export default function Gallery() {
           </h2>
           <p
             className="mt-2"
-            style={{ color: '#B0B0B0', fontFamily: "'DM Sans', sans-serif" }}
+            style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
           >
             Real results from real vehicles.
           </p>
@@ -162,3 +162,5 @@ export default function Gallery() {
     </section>
   )
 }
+
+

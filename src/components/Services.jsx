@@ -93,7 +93,7 @@ function ServiceCard({ icon, title, body }) {
       <p
         style={{
           fontFamily: "'DM Sans', sans-serif",
-          color: '#B0B0B0',
+          color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
           fontSize: '15px',
           lineHeight: '1.7',
         }}
@@ -121,7 +121,7 @@ export default function Services() {
               fontFamily: "'DM Sans', sans-serif",
               fontWeight: 800,
               fontSize: 'clamp(48px, 6vw, 80px)',
-              color: '#FFFFFF',
+              color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
               lineHeight: 1.05,
             }}
           >
@@ -138,3 +138,5 @@ export default function Services() {
     </section>
   )
 }
+
+

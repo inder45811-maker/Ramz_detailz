@@ -1,5 +1,4 @@
-import DiceOrnament from './shared/DiceOrnament'
-import SnowFoamCannon from './shared/SnowFoamCannon'
+
 
 const InstagramIcon = ({ size = 20, color = '#D4AF37' }) => (
   <svg
@@ -93,21 +92,11 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto">
         {/* ── Wordmark ── */}
         <div className="flex flex-col items-center mb-12">
-          <DiceOrnament scale={0.8} className="mb-4" />
-
-          <span
-            className="text-gold-metallic font-ramz text-center block"
-            style={{ fontSize: 'clamp(72px, 10vw, 120px)', lineHeight: 1 }}
-          >
-            Ramz
-          </span>
-
-          <span
-            className="font-detailz text-white text-center block"
-            style={{ letterSpacing: '0.2em', fontSize: '32px', marginTop: 0 }}
-          >
-            DETAILZ
-          </span>
+          <img 
+            src={`${import.meta.env.BASE_URL}hero-logo.png`}
+            alt="Ramz Detailz Logo" 
+            className="h-32 md:h-48 w-auto object-contain mb-4 blend-logo"
+          />
         </div>
 
         {/* ── 3-Column Grid ── */}
@@ -122,7 +111,7 @@ export default function Footer() {
               href="https://instagram.com/ramz_detailz"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 mb-3 text-white text-sm transition-colors duration-200 hover:text-[#D4AF37] md:justify-start justify-center"
+              className="flex items-center gap-2 mb-3 text-gold-metallic text-sm transition-colors duration-200 hover:text-[#D4AF37] md:justify-start justify-center"
             >
               <InstagramIcon size={16} color="currentColor" />
               @ramz_detailz
@@ -130,13 +119,13 @@ export default function Footer() {
 
             <a
               href="mailto:ramzdetailz@outlook.com"
-              className="flex items-center gap-2 mb-3 text-white text-sm transition-colors duration-200 hover:text-[#D4AF37] md:justify-start justify-center"
+              className="flex items-center gap-2 mb-3 text-gold-metallic text-sm transition-colors duration-200 hover:text-[#D4AF37] md:justify-start justify-center"
             >
               <EnvelopeIcon />
               ramzdetailz@outlook.com
             </a>
 
-            <div className="flex items-center gap-2 mb-3 text-white text-sm md:justify-start justify-center">
+            <div className="flex items-center gap-2 mb-3 text-gold-metallic text-sm md:justify-start justify-center">
               <PinIcon />
               Coventry, United Kingdom CV6
             </div>
@@ -153,7 +142,7 @@ export default function Footer() {
                   <a
                     href="#services"
                     className="text-sm transition-colors duration-200 hover:text-[#D4AF37]"
-                    style={{ color: '#B0B0B0' }}
+                    style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}
                   >
                     {service}
                   </a>
@@ -167,19 +156,19 @@ export default function Footer() {
             <p className="mb-4" style={columnLabelStyle}>
               AVAILABILITY
             </p>
-            <p className="text-sm mb-1" style={{ color: '#B0B0B0' }}>
+            <p className="text-sm mb-1" style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>
               Monday – Saturday
             </p>
-            <p className="text-sm mb-4" style={{ color: '#B0B0B0' }}>
+            <p className="text-sm mb-4" style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>
               By Appointment Only
             </p>
-            <p className="text-sm mb-1" style={{ color: '#B0B0B0' }}>
+            <p className="text-sm mb-1" style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>
               Sunday
             </p>
-            <p className="text-sm mb-4" style={{ color: '#B0B0B0' }}>
+            <p className="text-sm mb-4" style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>
               Closed
             </p>
-            <p className="text-sm mb-2" style={{ color: '#B0B0B0' }}>
+            <p className="text-sm mb-2" style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>
               Coventry, UK
             </p>
             <p
@@ -197,7 +186,7 @@ export default function Footer() {
         {/* ── Policy Text ── */}
         <p
           className="text-center text-xs mb-4"
-          style={{ color: '#B0B0B0', fontFamily: "'DM Sans', sans-serif" }}
+          style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
         >
           A £10 deposit is required to confirm all bookings. See terms and
           conditions for more information.
@@ -205,15 +194,13 @@ export default function Footer() {
 
         {/* ── Bottom Bar ── */}
         <div className="flex justify-between items-center flex-wrap gap-4">
-          {/* Left — Foam Cannon */}
-          <div className="flex items-center">
-            <SnowFoamCannon size={0.4} />
-          </div>
+          {/* Left Spacer */}
+          <div className="flex items-center w-8"></div>
 
           {/* Center — Copyright */}
           <p
             className="text-xs"
-            style={{ color: '#B0B0B0', fontFamily: "'DM Sans', sans-serif" }}
+            style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
           >
             © 2026 Ramz DETAILZ. All rights reserved.
           </p>
@@ -244,3 +231,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+

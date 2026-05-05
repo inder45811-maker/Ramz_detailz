@@ -28,20 +28,20 @@ export default function About() {
 
         <h2
           ref={headlineRef}
-          className="reveal font-['DM_Sans'] text-white leading-tight mb-6"
+          className="reveal font-['DM_Sans'] text-gold-metallic leading-tight mb-6"
           style={{
             fontSize: 'clamp(40px, 6vw, 72px)',
             fontWeight: 800,
           }}
         >
-          Small Operation. Big Results.
+          Attention to Detail.
         </h2>
 
         <p
           ref={bodyRef}
           className="reveal mx-auto mb-16"
           style={{
-            color: '#B0B0B0',
+            color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
             fontSize: '18px',
             lineHeight: 1.8,
             maxWidth: '42rem',
@@ -71,7 +71,7 @@ export default function About() {
                 {stat.value}
               </span>
               <span
-                className="text-white uppercase mt-2"
+                className="text-gold-metallic uppercase mt-2"
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontWeight: 700,
@@ -90,3 +90,5 @@ export default function About() {
     </section>
   )
 }
+
+

@@ -116,7 +116,7 @@ export default function Booking() {
           </p>
           <h2
             ref={headlineRef}
-            className="reveal font-extrabold text-white mt-3"
+            className="reveal font-extrabold text-gold-metallic mt-3"
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontWeight: 800,
@@ -128,7 +128,7 @@ export default function Booking() {
           </h2>
           <p
             className="mt-3 max-w-xl mx-auto text-center"
-            style={{ color: '#B0B0B0', fontFamily: "'DM Sans', sans-serif" }}
+            style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
           >
             Choose your service and pick a time that works for you. Coventry, UK based. Mobile service available.
           </p>
@@ -148,7 +148,7 @@ export default function Booking() {
           <CalendarIcon />
 
           <p
-            className="text-white mt-4"
+            className="text-gold-metallic mt-4"
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
               fontSize: '24px',
@@ -160,7 +160,7 @@ export default function Booking() {
 
           <p
             className="mt-2 text-sm"
-            style={{ color: '#B0B0B0', fontFamily: "'DM Sans', sans-serif" }}
+            style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
           >
             Contact us directly to reserve your slot:
           </p>
@@ -205,7 +205,7 @@ export default function Booking() {
           <ShieldIcon />
           <span
             className="text-sm"
-            style={{ color: '#B0B0B0', fontFamily: "'DM Sans', sans-serif", fontSize: '14px' }}
+            style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif", fontSize: '14px' }}
           >
             £10 deposit required to confirm all bookings
           </span>
@@ -228,14 +228,14 @@ export default function Booking() {
             <div key={item.label} className="flex flex-col items-center gap-2">
               {item.icon}
               <span
-                className="text-white font-bold text-xl"
+                className="text-gold-metallic font-bold text-xl"
                 style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em', fontSize: '22px' }}
               >
                 {item.stat}
               </span>
               <span
                 className="text-sm"
-                style={{ color: '#B0B0B0', fontFamily: "'DM Sans', sans-serif" }}
+                style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
               >
                 {item.label}
               </span>
@@ -251,3 +251,5 @@ export default function Booking() {
     </section>
   )
 }
+
+

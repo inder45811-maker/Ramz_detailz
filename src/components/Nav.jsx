@@ -48,33 +48,17 @@ export default function Nav() {
           className="mx-auto flex items-center justify-between px-6 py-4 md:px-12 md:py-5"
           style={{ maxWidth: '1400px' }}
         >
-          {/* Wordmark */}
+          {/* Logo */}
           <a
             href="#home"
-            className="flex flex-col leading-none select-none"
+            className="flex items-center"
             aria-label="Ramz Detailz — Home"
           >
-            <span
-              className="text-gold"
-              style={{
-                fontFamily: "'Pinyon Script', cursive",
-                fontSize: '22px',
-                lineHeight: 1.1,
-              }}
-            >
-              Ramz
-            </span>
-            <span
-              className="text-white tracking-widest"
-              style={{
-                fontFamily: "'Bebas Neue', sans-serif",
-                fontSize: '14px',
-                letterSpacing: '0.25em',
-                lineHeight: 1,
-              }}
-            >
-              DETAILZ
-            </span>
+            <img 
+              src={`${import.meta.env.BASE_URL}hero-logo.png`}
+              alt="Ramz Detailz Logo" 
+              className="h-10 w-auto object-contain blend-logo"
+            />
           </a>
 
           {/* Desktop links */}
@@ -83,7 +67,7 @@ export default function Nav() {
               <li key={label}>
                 <a
                   href={href}
-                  className="relative text-white text-sm font-medium tracking-wide
+                  className="relative text-gold-metallic text-sm font-medium tracking-wide
                     after:content-[''] after:absolute after:left-0 after:bottom-[-2px]
                     after:h-[1px] after:w-full after:bg-gold
                     after:scale-x-0 after:origin-left
@@ -153,7 +137,7 @@ export default function Nav() {
               <a
                 href={href}
                 onClick={handleLinkClick}
-                className="text-gold hover:text-white transition-colors duration-200"
+                className="text-gold hover:text-gold-metallic transition-colors duration-200"
                 style={{
                   fontFamily: "'Bebas Neue', sans-serif",
                   fontSize: '2.5rem',
@@ -166,26 +150,17 @@ export default function Nav() {
           ))}
         </ul>
 
-        {/* Bottom wordmark */}
+        {/* Bottom Logo */}
         <div className="absolute bottom-10 flex flex-col items-center opacity-30 select-none">
-          <span
-            className="text-gold"
-            style={{ fontFamily: "'Pinyon Script', cursive", fontSize: '28px' }}
-          >
-            Ramz
-          </span>
-          <span
-            className="text-white tracking-widest"
-            style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: '12px',
-              letterSpacing: '0.3em',
-            }}
-          >
-            DETAILZ
-          </span>
+          <img 
+            src={`${import.meta.env.BASE_URL}hero-logo.png`}
+            alt="Ramz Detailz Logo" 
+            className="h-16 w-auto object-contain blend-logo"
+          />
         </div>
       </div>
     </>
   )
 }
+
+
