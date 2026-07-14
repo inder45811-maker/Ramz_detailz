@@ -1,7 +1,7 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const SprayIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M10 28 L10 18 L18 18 L18 14 L24 14 L24 18 L26 18 C27.1 18 28 18.9 28 20 L28 28 C28 29.1 27.1 30 26 30 L12 30 C10.9 30 10 29.1 10 28Z" stroke="#D4AF37" strokeWidth="1.8" strokeLinejoin="round" fill="none"/>
     <path d="M18 14 L18 10 L22 10 L22 14" stroke="#D4AF37" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
     <circle cx="19" cy="24" r="2.5" fill="#D4AF37" opacity="0.7"/>
@@ -13,7 +13,7 @@ const SprayIcon = () => (
 )
 
 const BubbleCarIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M6 24 L6 20 L10 14 L28 14 L32 20 L34 20 L34 24 L32 24" stroke="#D4AF37" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
     <path d="M6 24 L10 24" stroke="#D4AF37" strokeWidth="1.8" strokeLinecap="round"/>
     <circle cx="13" cy="25.5" r="3" stroke="#D4AF37" strokeWidth="1.8" fill="none"/>
@@ -26,7 +26,7 @@ const BubbleCarIcon = () => (
 )
 
 const CarKeysIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <path d="M5 22 L5 18 L9 12 L27 12 L31 18 L35 18 L35 22 L31 22" stroke="#D4AF37" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
     <path d="M5 22 L9 22" stroke="#D4AF37" strokeWidth="1.8" strokeLinecap="round"/>
     <circle cx="12" cy="23.5" r="2.8" stroke="#D4AF37" strokeWidth="1.8" fill="none"/>
@@ -38,7 +38,7 @@ const CarKeysIcon = () => (
 )
 
 const FoamCannonIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <rect x="8" y="20" width="14" height="10" rx="2" stroke="#D4AF37" strokeWidth="1.8" fill="none"/>
     <path d="M22 24 L28 24 L28 22 L32 22 L32 26 L28 26 L28 24" stroke="#D4AF37" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
     <path d="M12 20 L12 16 L18 16 L18 20" stroke="#D4AF37" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -79,24 +79,14 @@ function ServiceCard({ icon, title, body }) {
     <div ref={ref} className="card-gold reveal rounded-xl p-8">
       <div>{icon}</div>
       <h3
-        style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          color: '#D4AF37',
-          fontSize: '1.5rem',
-          letterSpacing: '0.1em',
-          marginTop: '1rem',
-          marginBottom: '0.75rem',
-        }}
+        className="font-detailz mt-4 mb-3"
+        style={{ color: '#D4AF37', fontSize: '1.5rem' }}
       >
         {title}
       </h3>
       <p
-        style={{
-          fontFamily: "'DM Sans', sans-serif",
-          color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
-          fontSize: '15px',
-          lineHeight: '1.7',
-        }}
+        className="text-luxe-body"
+        style={{ fontSize: '15px', lineHeight: 1.7 }}
       >
         {body}
       </p>
@@ -117,11 +107,9 @@ export default function Services() {
         <p className="section-label mb-3">WHAT WE DO</p>
         <div ref={headlineRef} className="reveal">
           <h2
+            className="font-editorial text-gold-metallic"
             style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 800,
-              fontSize: 'clamp(48px, 6vw, 80px)',
-              color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
+              fontSize: 'clamp(44px, 5.5vw, 72px)',
               lineHeight: 1.05,
             }}
           >
@@ -138,5 +126,3 @@ export default function Services() {
     </section>
   )
 }
-
-

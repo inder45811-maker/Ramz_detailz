@@ -1,4 +1,4 @@
-
+import { EMAIL, INSTAGRAM_URL, waLink } from '../constants'
 
 const InstagramIcon = ({ size = 20, color = '#D4AF37' }) => (
   <svg
@@ -92,9 +92,13 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto">
         {/* ── Wordmark ── */}
         <div className="flex flex-col items-center mb-12">
-          <img 
+          <img
             src={`${import.meta.env.BASE_URL}hero-logo.png`}
-            alt="Ramz Detailz Logo" 
+            alt="Ramz Detailz Logo"
+            width="320"
+            height="192"
+            loading="lazy"
+            decoding="async"
             className="h-32 md:h-48 w-auto object-contain mb-4 blend-logo"
           />
         </div>
@@ -108,24 +112,26 @@ export default function Footer() {
             </p>
 
             <a
-              href="https://instagram.com/ramz_detailz"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 mb-3 text-gold-metallic text-sm transition-colors duration-200 hover:text-[#D4AF37] md:justify-start justify-center"
+              className="text-luxe-body flex items-center gap-2 mb-3 text-sm hover:text-[#D4AF37] md:justify-start justify-center"
+              style={{ transition: 'color 0.2s cubic-bezier(0.16, 1, 0.3, 1)' }}
             >
               <InstagramIcon size={16} color="currentColor" />
               @ramz_detailz
             </a>
 
             <a
-              href="mailto:ramzdetailz@outlook.com"
-              className="flex items-center gap-2 mb-3 text-gold-metallic text-sm transition-colors duration-200 hover:text-[#D4AF37] md:justify-start justify-center"
+              href={`mailto:${EMAIL}`}
+              className="text-luxe-body flex items-center gap-2 mb-3 text-sm hover:text-[#D4AF37] md:justify-start justify-center"
+              style={{ transition: 'color 0.2s cubic-bezier(0.16, 1, 0.3, 1)' }}
             >
               <EnvelopeIcon />
-              ramzdetailz@outlook.com
+              {EMAIL}
             </a>
 
-            <div className="flex items-center gap-2 mb-3 text-gold-metallic text-sm md:justify-start justify-center">
+            <div className="text-luxe-body flex items-center gap-2 mb-3 text-sm md:justify-start justify-center">
               <PinIcon />
               Coventry, United Kingdom CV6
             </div>
@@ -141,8 +147,8 @@ export default function Footer() {
                 <li key={service}>
                   <a
                     href="#services"
-                    className="text-sm transition-colors duration-200 hover:text-[#D4AF37]"
-                    style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}
+                    className="text-luxe-body text-sm hover:text-[#D4AF37]"
+                    style={{ transition: 'color 0.2s cubic-bezier(0.16, 1, 0.3, 1)' }}
                   >
                     {service}
                   </a>
@@ -156,21 +162,11 @@ export default function Footer() {
             <p className="mb-4" style={columnLabelStyle}>
               AVAILABILITY
             </p>
-            <p className="text-sm mb-1" style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>
-              Monday – Saturday
-            </p>
-            <p className="text-sm mb-4" style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>
-              By Appointment Only
-            </p>
-            <p className="text-sm mb-1" style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>
-              Sunday
-            </p>
-            <p className="text-sm mb-4" style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>
-              Closed
-            </p>
-            <p className="text-sm mb-2" style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text' }}>
-              Coventry, UK
-            </p>
+            <p className="text-luxe-body text-sm mb-1">Monday – Saturday</p>
+            <p className="text-luxe-muted text-sm mb-4">By Appointment Only</p>
+            <p className="text-luxe-body text-sm mb-1">Sunday</p>
+            <p className="text-luxe-muted text-sm mb-4">Closed</p>
+            <p className="text-luxe-body text-sm mb-2">Coventry, UK</p>
             <p
               className="text-sm mt-2"
               style={{ color: '#D4AF37', fontFamily: "'DM Sans', sans-serif" }}
@@ -184,44 +180,37 @@ export default function Footer() {
         <div className="gold-divider my-8" />
 
         {/* ── Policy Text ── */}
-        <p
-          className="text-center text-xs mb-4"
-          style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
-        >
+        <p className="text-luxe-muted text-center text-xs mb-4">
           A £10 deposit is required to confirm all bookings. See terms and
           conditions for more information.
         </p>
 
         {/* ── Bottom Bar ── */}
         <div className="flex justify-between items-center flex-wrap gap-4">
-          {/* Left Spacer */}
           <div className="flex items-center w-8"></div>
 
-          {/* Center — Copyright */}
-          <p
-            className="text-xs"
-            style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
-          >
+          <p className="text-luxe-muted text-xs">
             © 2026 Ramz DETAILZ. All rights reserved.
           </p>
 
-          {/* Right — Social Links */}
           <div className="flex items-center gap-4">
             <a
-              href="https://instagram.com/ramz_detailz"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="transition-opacity duration-200 hover:opacity-70"
+              className="hover:opacity-70"
+              style={{ transition: 'opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1)' }}
             >
               <InstagramIcon size={20} color="#D4AF37" />
             </a>
             <a
-              href="https://wa.me/447XXXXXXXXXX?text=Hi%20Ramz%2C%20I%20found%20you%20through%20your%20website"
+              href={waLink('Hi Ramz, I found you through your website')}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="transition-opacity duration-200 hover:opacity-70"
+              className="hover:opacity-70"
+              style={{ transition: 'opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1)' }}
             >
               <WhatsAppIcon size={20} color="#D4AF37" />
             </a>
@@ -231,5 +220,3 @@ export default function Footer() {
     </footer>
   )
 }
-
-

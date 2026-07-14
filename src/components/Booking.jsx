@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { EMAIL, waLink } from '../constants'
 
 function CalendarIcon() {
   return (
@@ -105,36 +106,28 @@ export default function Booking() {
       style={{ background: '#000000' }}
       className="py-24 px-6"
     >
-      {/* Top gold divider */}
       <div className="gold-divider mb-0" />
 
       <div className="max-w-3xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-12">
           <p ref={labelRef} className="section-label reveal">
             BOOK ONLINE
           </p>
           <h2
             ref={headlineRef}
-            className="reveal font-extrabold text-gold-metallic mt-3"
+            className="reveal font-editorial text-gold-metallic mt-3"
             style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 800,
-              fontSize: 'clamp(48px, 6vw, 80px)',
+              fontSize: 'clamp(44px, 5.5vw, 72px)',
               lineHeight: 1.1,
             }}
           >
             Reserve Your Slot
           </h2>
-          <p
-            className="mt-3 max-w-xl mx-auto text-center"
-            style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
-          >
+          <p className="text-luxe-muted mt-3 max-w-xl mx-auto text-center">
             Choose your service and pick a time that works for you. Coventry, UK based. Mobile service available.
           </p>
         </div>
 
-        {/* Booking embed container */}
         <div
           ref={embedRef}
           id="calendly-embed"
@@ -148,32 +141,26 @@ export default function Booking() {
           <CalendarIcon />
 
           <p
-            className="text-gold-metallic mt-4"
-            style={{
-              fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: '24px',
-              letterSpacing: '0.08em',
-            }}
+            className="text-gold-metallic mt-4 font-detailz"
+            style={{ fontSize: '24px', letterSpacing: '0.08em' }}
           >
             Online booking coming soon
           </p>
 
-          <p
-            className="mt-2 text-sm"
-            style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
-          >
+          <p className="text-luxe-muted mt-2 text-sm">
             Contact us directly to reserve your slot:
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center mt-6">
             <a
-              href="https://wa.me/447XXXXXXXXXX?text=Hi%20Ramz%2C%20I%27d%20like%20to%20book%20a%20detailing%20service"
+              href={waLink("Hi Ramz, I'd like to book a detailing service")}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full font-semibold text-sm text-white inline-flex items-center gap-2 transition-all duration-200 hover:brightness-110 hover:scale-105"
+              className="px-6 py-3 rounded-full font-semibold text-sm text-white inline-flex items-center gap-2 hover:brightness-110"
               style={{
                 background: '#25D366',
                 fontFamily: "'DM Sans', sans-serif",
+                transition: 'filter 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -183,12 +170,13 @@ export default function Booking() {
             </a>
 
             <a
-              href="mailto:ramzdetailz@outlook.com"
-              className="px-6 py-3 rounded-full font-semibold text-sm inline-flex items-center gap-2 transition-all duration-200 hover:bg-[#D4AF37]/10 hover:scale-105"
+              href={`mailto:${EMAIL}`}
+              className="px-6 py-3 rounded-full font-semibold text-sm inline-flex items-center gap-2 hover:bg-[#D4AF37]/10"
               style={{
                 border: '1px solid #D4AF37',
                 color: '#D4AF37',
                 fontFamily: "'DM Sans', sans-serif",
+                transition: 'background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
               }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -200,56 +188,40 @@ export default function Booking() {
           </div>
         </div>
 
-        {/* Deposit info bar */}
         <div className="flex items-center justify-center gap-2 mt-6">
           <ShieldIcon />
-          <span
-            className="text-sm"
-            style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif", fontSize: '14px' }}
-          >
+          <span className="text-luxe-muted text-sm">
             £10 deposit required to confirm all bookings
           </span>
         </div>
 
-        {/* CTA */}
         <div className="flex justify-center mt-6">
           <a
-            href="mailto:ramzdetailz@outlook.com"
-            className="btn-gold inline-block px-10 py-3 rounded-full font-semibold transition-all duration-200 hover:brightness-110 hover:scale-105"
+            href={`mailto:${EMAIL}`}
+            className="btn-gold inline-block px-10 py-3 rounded-full font-semibold"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             Check Availability
           </a>
         </div>
 
-        {/* Trust signals */}
         <div className="flex justify-center gap-8 flex-wrap mt-12">
           {trustItems.map((item) => (
             <div key={item.label} className="flex flex-col items-center gap-2">
               {item.icon}
               <span
-                className="text-gold-metallic font-bold text-xl"
-                style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.05em', fontSize: '22px' }}
+                className="text-gold-metallic font-detailz font-bold"
+                style={{ letterSpacing: '0.05em', fontSize: '22px' }}
               >
                 {item.stat}
               </span>
-              <span
-                className="text-sm"
-                style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <span className="text-luxe-muted text-sm">
                 {item.label}
               </span>
             </div>
           ))}
         </div>
       </div>
-
-      <style>{`
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-      `}</style>
     </section>
   )
 }
-
-

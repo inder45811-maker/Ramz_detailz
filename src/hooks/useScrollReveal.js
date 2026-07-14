@@ -7,17 +7,31 @@ export function useScrollReveal(options = {}) {
     const el = ref.current
     if (!el) return
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add('visible')
-          observer.unobserve(el)
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px', ...options }
-    )
+    // Keep content visible in browsers or test environments without the API.
+    if (typeof IntersectionObserver === 'undefined') {
+      el.classList.add('visible')
+      return
+    }
 
-    observer.observe(el)
+    let observer
+
+    try {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            el.classList.add('visible')
+            observer.unobserve(el)
+          }
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px', ...options }
+      )
+
+      observer.observe(el)
+    } catch {
+      el.classList.add('visible')
+      return
+    }
+
     return () => observer.disconnect()
   }, [])
 

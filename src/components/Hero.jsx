@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import GoldParticles from './shared/GoldParticles'
+import DiceOrnament from './shared/DiceOrnament'
+import SnowFoamCannon from './shared/SnowFoamCannon'
 
-// Stagger config: [delay in seconds]
 const STAGGER = {
   logo: 0,
   tagline: 0.3,
@@ -21,7 +22,7 @@ function revealed(mounted, delay) {
   return {
     opacity: mounted ? 1 : 0,
     transform: mounted ? 'translateY(0)' : 'translateY(16px)',
-    transition: `opacity 0.7s ease ${delay}s, transform 0.7s ease ${delay}s`,
+    transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
   }
 }
 
@@ -37,19 +38,23 @@ export default function Hero() {
       {/* ── Faded Background Logo ───────────────────────────── */}
       <div
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden"
-        style={{ opacity: mounted ? 0.25 : 0, transition: 'opacity 1.5s ease 0.2s' }}
+        style={{ opacity: mounted ? 0.25 : 0, transition: 'opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s' }}
       >
         <div className="relative w-full h-full flex items-center justify-center" style={{ maxWidth: '1200px' }}>
           {/* Edge fading mask */}
-          <div 
-            className="absolute inset-0 z-10" 
-            style={{ 
+          <div
+            className="absolute inset-0 z-10"
+            style={{
               background: 'radial-gradient(ellipse at center, transparent 30%, black 80%)'
-            }} 
+            }}
           />
-          <img 
+          <img
             src={`${import.meta.env.BASE_URL}hero-logo.png`}
-            alt="" 
+            alt=""
+            width="1200"
+            height="1200"
+            loading="eager"
+            decoding="async"
             className="w-full h-full object-cover sm:object-contain scale-110 opacity-70 blend-logo"
             style={{ filter: 'blur(4px) grayscale(30%)' }}
           />
@@ -58,6 +63,16 @@ export default function Hero() {
 
       {/* ── Gold particles layer ────────────────────────────── */}
       <GoldParticles count={16} />
+
+      {/* ── Decorative ornaments — desktop only, low opacity ── */}
+      <DiceOrnament
+        className="hidden lg:flex absolute top-20 right-12 z-10 opacity-70"
+        scale={1.1}
+      />
+      <SnowFoamCannon
+        className="hidden lg:block absolute bottom-12 left-8 z-10 opacity-40"
+        size={0.85}
+      />
 
       {/* ── Main content ────────────────────────────────────── */}
       <div
@@ -69,7 +84,7 @@ export default function Hero() {
           className="text-gold-metallic font-ramz"
           style={{
             ...revealed(mounted, STAGGER.logo),
-            fontWeight: 500, /* Reduced weight to prevent faux-bold distortion */
+            fontWeight: 500,
             fontSize: 'clamp(60px, 12vw, 140px)',
             lineHeight: 1.2,
             letterSpacing: '0.02em',
@@ -77,7 +92,7 @@ export default function Hero() {
             paddingTop: '20px',
           }}
         >
-          &apos;Attention to detail.&apos;
+          {'‘Attention to detail.’'}
         </h1>
 
         {/* Tagline */}
@@ -101,14 +116,14 @@ export default function Hero() {
         >
           <a
             href="#booking"
-            className="btn-gold py-4 px-10 rounded-full font-bold text-[14px] tracking-widest uppercase transition-transform duration-200 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(212,175,55,0.2)]"
+            className="btn-gold py-4 px-10 rounded-full font-bold text-[14px] tracking-widest uppercase shadow-[0_0_20px_rgba(212,175,55,0.2)]"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             Book Now
           </a>
           <a
             href="#gallery"
-            className="btn-outline py-4 px-10 rounded-full font-bold text-[14px] tracking-widest uppercase transition-transform duration-200 hover:scale-105 active:scale-95"
+            className="btn-outline py-4 px-10 rounded-full font-bold text-[14px] tracking-widest uppercase"
             style={{ fontFamily: "'DM Sans', sans-serif", border: '1px solid rgba(255,255,255,0.2)' }}
           >
             View Our Work
@@ -121,7 +136,3 @@ export default function Hero() {
     </section>
   )
 }
-
-
-
-

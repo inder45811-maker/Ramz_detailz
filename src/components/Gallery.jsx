@@ -36,65 +36,57 @@ const galleryItems = [
 function GalleryCard({ item }) {
   return (
     <div
-      className="card-gold rounded-xl overflow-hidden cursor-pointer group relative flex-shrink-0 min-w-[280px] snap-center md:min-w-0"
+      className="card-gold rounded-xl overflow-hidden relative flex-shrink-0 min-w-[280px] snap-center md:min-w-0"
       style={{ height: '280px' }}
     >
-      {/* Background gradient placeholder */}
+      {/* Decorative placeholder while genuine portfolio photography is prepared. */}
       <div
-        className="absolute inset-0 transition-transform duration-500 group-hover:scale-105"
+        className="absolute inset-0"
         style={{ background: item.gradient }}
+        aria-hidden="true"
       />
 
-      {/* Gold shimmer overlay on hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 z-10" />
-
-      {/* Center divider line */}
+      {/* Subtle overlay keeps the placeholder copy legible. */}
       <div
-        className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 z-20 pointer-events-none"
-        style={{ width: '1px', background: 'rgba(255,255,255,0.3)' }}
+        className="absolute inset-0 z-10"
+        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2))' }}
+        aria-hidden="true"
       />
 
-      {/* BEFORE label */}
-      <span
-        className="absolute top-3 left-3 z-30 px-2 py-1 rounded text-xs text-gold-metallic"
-        style={{
-          background: 'rgba(0,0,0,0.6)',
-          fontFamily: "'Bebas Neue', sans-serif",
-          letterSpacing: '0.05em',
-        }}
-      >
-        BEFORE
-      </span>
-
-      {/* AFTER label */}
-      <span
-        className="absolute top-3 right-3 z-30 px-2 py-1 rounded text-xs text-black font-bold"
-        style={{
-          background: 'rgba(212,175,55,0.85)',
-          fontFamily: "'Bebas Neue', sans-serif",
-          letterSpacing: '0.05em',
-        }}
-      >
-        AFTER
-      </span>
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 text-center px-6">
+        <svg
+          width="38"
+          height="38"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#D4AF37"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <circle cx="12" cy="12" r="3" />
+          <path d="M8 5l1.5-2h5L16 5" />
+        </svg>
+        <span className="section-label" style={{ letterSpacing: '0.18em' }}>
+          Photos coming soon
+        </span>
+      </div>
 
       {/* Bottom overlay */}
       <div
         className="absolute bottom-0 left-0 right-0 z-30 px-4 py-3 flex items-end justify-between"
-        style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)' }}
       >
         <span
-          className="text-gold-metallic"
-          style={{
-            fontFamily: "'Bebas Neue', sans-serif",
-            fontSize: '18px',
-            letterSpacing: '0.1em',
-          }}
+          className="text-gold-metallic font-detailz"
+          style={{ fontSize: '18px', letterSpacing: '0.1em' }}
         >
           {item.name}
         </span>
         <a
           href="#booking"
+          aria-label={`Book ${item.name.toLowerCase()}`}
           className="text-[#D4AF37] text-xs font-bold hover:underline whitespace-nowrap ml-2"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
@@ -117,50 +109,35 @@ export default function Gallery() {
       className="py-24 px-6"
     >
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-16">
           <p ref={labelRef} className="section-label reveal">
-            THE RESULTS
+            OUR PORTFOLIO
           </p>
           <h2
             ref={headlineRef}
-            className="reveal font-extrabold text-gold-metallic mt-3"
+            className="reveal font-editorial text-gold-metallic mt-3"
             style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 800,
-              fontSize: 'clamp(48px, 6vw, 80px)',
+              fontSize: 'clamp(44px, 5.5vw, 72px)',
               lineHeight: 1.1,
             }}
           >
-            Before &amp; After
+            Gallery Coming Soon
           </h2>
-          <p
-            className="mt-2"
-            style={{ color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text', fontFamily: "'DM Sans', sans-serif" }}
-          >
-            Real results from real vehicles.
+          <p className="text-luxe-muted mt-2">
+            We&apos;re preparing genuine before-and-after photos. In the meantime,
+            explore the services available to book.
           </p>
         </div>
 
-        {/* Mobile: horizontal scroll | Desktop: grid */}
         <div
           ref={gridRef}
-          className="reveal flex overflow-x-auto gap-4 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-6 md:overflow-visible"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          className="reveal flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-6 md:pb-0 md:overflow-visible"
         >
           {galleryItems.map((item) => (
             <GalleryCard key={item.id} item={item} />
           ))}
         </div>
       </div>
-
-      <style>{`
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        div[class*="overflow-x-auto"]::-webkit-scrollbar { display: none; }
-      `}</style>
     </section>
   )
 }
-
-

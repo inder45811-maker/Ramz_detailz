@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
+import { waLink } from '../constants'
 
-const WA_HREF =
-  'https://wa.me/447XXXXXXXXXX?text=Hi%20Ramz%2C%20I%20found%20you%20through%20your%20website'
+const WA_HREF = waLink('Hi Ramz, I found you through your website')
 
 const WhatsAppSVG = () => (
   <svg
@@ -23,13 +23,15 @@ const pulseKeyframes = `
   50%  { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0); }
   100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0); }
 }
+@media (prefers-reduced-motion: reduce) {
+  .wa-pulse { animation: none !important; }
+}
 `
 
 export default function WhatsAppButton() {
   const [hovered, setHovered] = useState(false)
   const [active, setActive] = useState(false)
 
-  // Inject keyframes once into the document head
   useEffect(() => {
     if (document.getElementById('wa-pulse-style')) return
     const style = document.createElement('style')
@@ -42,8 +44,7 @@ export default function WhatsAppButton() {
     }
   }, [])
 
-  const scale = active ? 0.98 : hovered ? 1.05 : 1
-  const brightness = hovered ? 1.1 : 1
+  const brightness = active ? 0.95 : hovered ? 1.1 : 1
 
   return (
     <a
@@ -51,6 +52,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Message us on WhatsApp"
+      className="wa-pulse"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => { setHovered(false); setActive(false) }}
       onMouseDown={() => setActive(true)}
@@ -71,18 +73,15 @@ export default function WhatsAppButton() {
         padding: '12px 20px',
         textDecoration: 'none',
         cursor: 'pointer',
-        transform: `scale(${scale})`,
         filter: `brightness(${brightness})`,
-        transition: 'transform 0.2s ease, filter 0.2s ease',
+        transition: 'filter 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
         animation: 'wa-pulse 2.4s ease-in-out infinite',
-        // Ensure minimum tap target on mobile
         minHeight: '48px',
         minWidth: '48px',
       }}
     >
       <WhatsAppSVG />
 
-      {/* Label — hidden below sm, visible at sm and above */}
       <span
         className="hidden sm:inline-block"
         style={{
@@ -98,5 +97,3 @@ export default function WhatsAppButton() {
     </a>
   )
 }
-
-

@@ -2,13 +2,13 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 
 /* ── Shared sub-components ─────────────────────────────────────── */
 
-function PriceItem({ price, name, description, gold = false }) {
+function PriceItem({ price, name, description }) {
   return (
     <li className="py-3" style={{ borderBottom: '1px solid rgba(212,175,55,0.1)' }}>
       <div className="flex items-baseline gap-2 flex-wrap">
         <span
+          className="font-detailz"
           style={{
-            fontFamily: "'Bebas Neue', sans-serif",
             color: '#D4AF37',
             fontSize: '1.1rem',
             letterSpacing: '0.05em',
@@ -18,25 +18,16 @@ function PriceItem({ price, name, description, gold = false }) {
           {price}
         </span>
         <span
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
-            fontWeight: 600,
-            fontSize: '0.95rem',
-          }}
+          className="text-luxe-body"
+          style={{ fontWeight: 600, fontSize: '0.95rem' }}
         >
           {name}
         </span>
       </div>
       {description && (
         <p
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
-            fontSize: '0.82rem',
-            lineHeight: 1.6,
-            marginTop: '0.25rem',
-          }}
+          className="text-luxe-muted mt-1"
+          style={{ fontSize: '0.82rem', lineHeight: 1.6 }}
         >
           {description}
         </p>
@@ -59,26 +50,15 @@ function MaintenanceCard() {
       }}
     >
       <p
-        style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          color: '#D4AF37',
-          letterSpacing: '0.25em',
-          fontSize: '0.85rem',
-          marginBottom: '0.75rem',
-        }}
+        className="font-detailz mb-3"
+        style={{ color: '#D4AF37', letterSpacing: '0.25em', fontSize: '0.85rem' }}
       >
         MAINTENANCE
       </p>
 
       <div
-        style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          color: '#D4AF37',
-          fontSize: '3rem',
-          letterSpacing: '0.05em',
-          lineHeight: 1,
-          marginBottom: '1.25rem',
-        }}
+        className="font-detailz mb-5"
+        style={{ color: '#D4AF37', fontSize: '3rem', letterSpacing: '0.05em', lineHeight: 1 }}
       >
         £20–£45
       </div>
@@ -118,15 +98,13 @@ function FullPackagesCard() {
         boxShadow: '0 0 40px rgba(212,175,55,0.18), 0 0 80px rgba(212,175,55,0.06)',
       }}
     >
-      {/* Most Popular badge */}
       <div
+        className="font-detailz absolute"
         style={{
-          position: 'absolute',
           top: '1.25rem',
           right: '1.25rem',
           backgroundColor: '#D4AF37',
           color: '#000000',
-          fontFamily: "'Bebas Neue', sans-serif",
           fontSize: '0.72rem',
           letterSpacing: '0.15em',
           padding: '0.25rem 0.6rem',
@@ -137,26 +115,15 @@ function FullPackagesCard() {
       </div>
 
       <p
-        style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          color: '#D4AF37',
-          letterSpacing: '0.25em',
-          fontSize: '0.85rem',
-          marginBottom: '0.75rem',
-        }}
+        className="font-detailz mb-3"
+        style={{ color: '#D4AF37', letterSpacing: '0.25em', fontSize: '0.85rem' }}
       >
         FULL PACKAGES
       </p>
 
       <div
-        style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          color: '#D4AF37',
-          fontSize: '3rem',
-          letterSpacing: '0.05em',
-          lineHeight: 1,
-          marginBottom: '1.25rem',
-        }}
+        className="font-detailz mb-5"
+        style={{ color: '#D4AF37', fontSize: '3rem', letterSpacing: '0.05em', lineHeight: 1 }}
       >
         £100–£180
       </div>
@@ -177,7 +144,6 @@ function FullPackagesCard() {
         <PriceItem
           price="£180"
           name="Both Full Packages Combined"
-          description=""
         />
       </ul>
     </div>
@@ -196,26 +162,15 @@ function ExtrasCard() {
       }}
     >
       <p
-        style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          color: '#D4AF37',
-          letterSpacing: '0.25em',
-          fontSize: '0.85rem',
-          marginBottom: '0.75rem',
-        }}
+        className="font-detailz mb-3"
+        style={{ color: '#D4AF37', letterSpacing: '0.25em', fontSize: '0.85rem' }}
       >
         EXTRAS
       </p>
 
       <div
-        style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          color: '#D4AF37',
-          fontSize: '3rem',
-          letterSpacing: '0.05em',
-          lineHeight: 1,
-          marginBottom: '1.25rem',
-        }}
+        className="font-detailz mb-5"
+        style={{ color: '#D4AF37', fontSize: '3rem', letterSpacing: '0.05em', lineHeight: 1 }}
       >
         From £10
       </div>
@@ -223,11 +178,7 @@ function ExtrasCard() {
       <div className="gold-divider mb-4" />
 
       <ul className="flex-1" style={{ listStyle: 'none', padding: 0 }}>
-        <PriceItem
-          price="£25"
-          name="Engine Bay"
-          description=""
-        />
+        <PriceItem price="£25" name="Engine Bay" />
         <PriceItem
           price="£10–£20"
           name="Exhaust Polish"
@@ -243,8 +194,6 @@ function ExtrasCard() {
   )
 }
 
-/* ── Star / Info icon ───────────────────────────────────────────── */
-
 function StarIcon() {
   return (
     <svg
@@ -253,6 +202,7 @@ function StarIcon() {
       viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
       style={{ flexShrink: 0, marginTop: '2px' }}
     >
       <path
@@ -275,48 +225,38 @@ export default function Pricing() {
       style={{ backgroundColor: '#000000' }}
       className="px-6 pb-24"
     >
-      {/* Top gold divider */}
       <div className="gold-divider" />
 
       <div className="pt-24">
-        {/* Header */}
         <div className="text-center mb-16">
           <p ref={labelRef} className="section-label reveal mb-3">
             INVESTMENT
           </p>
           <div ref={headlineRef} className="reveal">
             <h2
+              className="font-editorial text-gold-metallic"
               style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontWeight: 800,
-                fontSize: 'clamp(48px, 6vw, 80px)',
-                color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
+                fontSize: 'clamp(44px, 5.5vw, 72px)',
                 lineHeight: 1.05,
               }}
             >
               Pricing
             </h2>
             <p
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
-                marginTop: '0.5rem',
-                fontSize: '1rem',
-              }}
+              className="text-luxe-muted mt-2"
+              style={{ fontSize: '1rem' }}
             >
               Transparent pricing. No surprises.
             </p>
           </div>
         </div>
 
-        {/* Tier cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           <MaintenanceCard />
           <FullPackagesCard />
           <ExtrasCard />
         </div>
 
-        {/* Note bar */}
         <div
           className="max-w-2xl mx-auto mt-8 rounded-xl p-6"
           style={{
@@ -338,19 +278,13 @@ export default function Pricing() {
             </p>
           </div>
           <p
-            style={{
-              fontFamily: "'DM Sans', sans-serif",
-              color: 'transparent', backgroundImage: 'linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%)', WebkitBackgroundClip: 'text', backgroundClip: 'text',
-              fontSize: '0.8rem',
-              lineHeight: 1.6,
-              paddingLeft: '1.75rem',
-            }}
+            className="text-luxe-muted"
+            style={{ fontSize: '0.8rem', lineHeight: 1.6, paddingLeft: '1.75rem' }}
           >
             A £10 deposit is required to confirm all bookings. See terms and conditions for more information.
           </p>
         </div>
 
-        {/* CTA */}
         <div className="flex justify-center mt-8">
           <a
             href="#booking"
@@ -369,5 +303,3 @@ export default function Pricing() {
     </section>
   )
 }
-
-

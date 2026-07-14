@@ -25,7 +25,11 @@ export default {
       fontFamily: {
         script: ['Pinyon Script', 'cursive'],
         display: ['Bebas Neue', 'sans-serif'],
+        editorial: ['Playfair Display', 'serif'],
         body: ['DM Sans', 'sans-serif'],
+      },
+      transitionTimingFunction: {
+        'out-soft': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       backgroundImage: {
         'gold-metallic': 'linear-gradient(135deg, #B8952A 0%, #D4AF37 30%, #F5D97E 50%, #D4AF37 70%, #B8952A 100%)',

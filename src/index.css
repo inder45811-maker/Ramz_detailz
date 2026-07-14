@@ -10,8 +10,11 @@
   --black-soft: #0A0A0A;
   --black-card: #111111;
   --white: #FFFFFF;
+  --cream: #E8DCC0;
+  --cream-muted: rgba(232, 220, 192, 0.72);
   --gray-muted: #B0B0B0;
   --gray-dark: #2A2A2A;
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -26,31 +29,47 @@ html {
 
 body {
   background-color: #000000;
-  color: #FFFFFF;
+  color: var(--cream);
   font-family: 'DM Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Scrollbar */
+/* Scrollbar — wider + higher track contrast for visibility */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: #1A1A1A;
 }
 ::-webkit-scrollbar-thumb {
   background: #D4AF37;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
-/* Gold metallic text */
-.text-gold-metallic {
+/* ── Typography utilities ─────────────────────────────── */
+
+/* Gold metallic — for headlines, prices, hero only */
+.text-gold-metallic,
+.text-metallic {
   background: linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
+}
+
+/* Body copy — warm cream, ~14.5:1 on black */
+.text-luxe-body {
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Secondary / supporting text */
+.text-luxe-muted {
+  color: var(--cream-muted);
+  font-family: 'DM Sans', sans-serif;
 }
 
 /* Section label style */
@@ -62,53 +81,11 @@ body {
   text-transform: uppercase;
 }
 
-/* Gold border card */
-.card-gold {
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  background: var(--black-card);
-  transition: all 0.3s ease;
-}
-.card-gold:hover {
-  border-color: var(--gold);
-  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-  transform: scale(1.02);
-}
-
-/* Button styles */
-.btn-gold {
-  background: linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%);
-  color: #000;
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  transition: all 0.2s ease;
-  border: none;
-}
-.btn-gold:hover {
-  filter: brightness(1.2);
-}
-.btn-gold:active {
-  transform: scale(0.98);
-}
-
-.btn-outline {
-  border: 1px solid #D4AF37;
-  color: transparent;
-  background: transparent;
-  background-image: linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  font-family: 'DM Sans', sans-serif;
+/* Editorial serif heading (luxury tier) */
+.font-editorial {
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  transition: all 0.2s ease;
-}
-.btn-outline:hover {
-  border-color: #F5D97E;
-  filter: brightness(1.2);
-}
-.btn-outline:active {
-  transform: scale(0.98);
+  letter-spacing: -0.01em;
 }
 
 /* Ramz script */
@@ -122,13 +99,87 @@ body {
   letter-spacing: 0.15em;
 }
 
-/* Section divider */
+/* ── Cards ─────────────────────────────────────────────── */
+
+.card-gold {
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: var(--black-card);
+  transition: border-color 0.3s var(--ease-out-soft),
+              box-shadow 0.3s var(--ease-out-soft);
+}
+.card-gold:hover {
+  border-color: var(--gold);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.25),
+              inset 0 0 0 1px rgba(212, 175, 55, 0.2);
+}
+
+/* ── Buttons ───────────────────────────────────────────── */
+
+.btn-gold {
+  background: linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%);
+  color: #000;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: filter 0.2s var(--ease-out-soft),
+              box-shadow 0.2s var(--ease-out-soft);
+  border: none;
+}
+.btn-gold:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.35);
+}
+.btn-gold:active {
+  filter: brightness(0.95);
+}
+
+.btn-outline {
+  border: 1px solid #D4AF37;
+  color: transparent;
+  background: transparent;
+  background-image: linear-gradient(135deg, #B8952A 0%, #D4AF37 25%, #F5D97E 50%, #D4AF37 75%, #B8952A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: border-color 0.2s var(--ease-out-soft),
+              filter 0.2s var(--ease-out-soft),
+              box-shadow 0.2s var(--ease-out-soft);
+}
+.btn-outline:hover {
+  border-color: #F5D97E;
+  filter: brightness(1.15);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.25);
+}
+
+/* ── Focus-visible — keyboard-only ─────────────────────── */
+
+:where(a, button, [role="button"], input, select, textarea):focus {
+  outline: none;
+}
+:where(a, button, [role="button"], input, select, textarea):focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Cards & explicitly-tabbable wrappers get a softer ring */
+.card-gold:focus-visible,
+[data-focus-ring]:focus-visible {
+  outline: 2px solid #F5D97E;
+  outline-offset: 3px;
+}
+
+/* ── Section divider ───────────────────────────────────── */
+
 .gold-divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 
-/* Noise grain overlay */
+/* ── Noise overlay ─────────────────────────────────────── */
+
 .grain-overlay::before {
   content: '';
   position: absolute;
@@ -139,7 +190,8 @@ body {
   opacity: 0.4;
 }
 
-/* Floating particle */
+/* ── Decorative animations ─────────────────────────────── */
+
 @keyframes particleFloat {
   0% { transform: translateY(0) rotate(0deg); opacity: 0; }
   10% { opacity: 1; }
@@ -151,7 +203,8 @@ body {
   animation: particleFloat linear infinite;
 }
 
-/* Scroll reveal base */
+/* ── Scroll reveal ─────────────────────────────────────── */
+
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -159,11 +212,40 @@ body {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.7s var(--ease-out-soft),
+              transform 0.7s var(--ease-out-soft);
 }
 
-/* Blend image edges into background */
+/* ── Image edge blend ──────────────────────────────────── */
+
 .blend-logo {
   -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 95%);
   mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 95%);
+}
+
+/* ── Reduced-motion override ───────────────────────────── *
+ * Respects WCAG 2.3.3 + UX rule "reduced-motion".
+ * Strips infinite decorative animations entirely; flattens
+ * transitions to near-instant for motion-sensitive users.    */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .particle,
+  .animate-pulse-glow,
+  .animate-float-up,
+  .animate-dice-sway,
+  .animate-foam-drift {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
