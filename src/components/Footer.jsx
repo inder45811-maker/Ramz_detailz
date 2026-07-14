@@ -1,4 +1,11 @@
-import { EMAIL, INSTAGRAM_URL, waLink } from '../constants'
+import {
+  EMAIL,
+  INSTAGRAM_URL,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  pageUrl,
+  waLink,
+} from '../site'
 
 const InstagramIcon = ({ size = 20, color = '#D4AF37' }) => (
   <svg
@@ -93,10 +100,10 @@ export default function Footer() {
         {/* ── Wordmark ── */}
         <div className="flex flex-col items-center mb-12">
           <img
-            src={`${import.meta.env.BASE_URL}hero-logo.png`}
+            src={`${import.meta.env.BASE_URL}hero-logo-medium.webp`}
             alt="Ramz Detailz Logo"
-            width="320"
-            height="192"
+            width="480"
+            height="480"
             loading="lazy"
             decoding="async"
             className="h-32 md:h-48 w-auto object-contain mb-4 blend-logo"
@@ -123,6 +130,15 @@ export default function Footer() {
             </a>
 
             <a
+              href={`tel:${PHONE_HREF}`}
+              className="text-luxe-body flex items-center gap-2 mb-3 text-sm hover:text-[#D4AF37] md:justify-start justify-center"
+              style={{ transition: 'color 0.2s cubic-bezier(0.16, 1, 0.3, 1)' }}
+            >
+              <span aria-hidden="true">☎</span>
+              {PHONE_DISPLAY}
+            </a>
+
+            <a
               href={`mailto:${EMAIL}`}
               className="text-luxe-body flex items-center gap-2 mb-3 text-sm hover:text-[#D4AF37] md:justify-start justify-center"
               style={{ transition: 'color 0.2s cubic-bezier(0.16, 1, 0.3, 1)' }}
@@ -146,7 +162,7 @@ export default function Footer() {
               {services.map((service) => (
                 <li key={service}>
                   <a
-                    href="#services"
+                    href={pageUrl('services')}
                     className="text-luxe-body text-sm hover:text-[#D4AF37]"
                     style={{ transition: 'color 0.2s cubic-bezier(0.16, 1, 0.3, 1)' }}
                   >
@@ -162,10 +178,8 @@ export default function Footer() {
             <p className="mb-4" style={columnLabelStyle}>
               AVAILABILITY
             </p>
-            <p className="text-luxe-body text-sm mb-1">Monday – Saturday</p>
-            <p className="text-luxe-muted text-sm mb-4">By Appointment Only</p>
-            <p className="text-luxe-body text-sm mb-1">Sunday</p>
-            <p className="text-luxe-muted text-sm mb-4">Closed</p>
+            <p className="text-luxe-body text-sm mb-1">By Appointment Only</p>
+            <p className="text-luxe-muted text-sm mb-4">Contact us for available times</p>
             <p className="text-luxe-body text-sm mb-2">Coventry, UK</p>
             <p
               className="text-sm mt-2"
@@ -181,8 +195,11 @@ export default function Footer() {
 
         {/* ── Policy Text ── */}
         <p className="text-luxe-muted text-center text-xs mb-4">
-          A £10 deposit is required to confirm all bookings. See terms and
-          conditions for more information.
+          A £10 deposit is required once an appointment is confirmed.{' '}
+          <a href={pageUrl('booking')} className="text-[#D4AF37] underline underline-offset-2">
+            View the booking process
+          </a>
+          .
         </p>
 
         {/* ── Bottom Bar ── */}

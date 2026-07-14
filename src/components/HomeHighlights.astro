@@ -1,0 +1,52 @@
+---
+import { pageUrl } from '../site'
+
+const highlights = [
+  {
+    label: 'Detailing Services',
+    title: 'Interior and exterior care',
+    text: 'Choose from maintenance washes, mini valets, deep interior cleans, clay-bar decontamination and stage-one polishing.',
+    href: pageUrl('services'),
+    cta: 'Explore services',
+  },
+  {
+    label: 'Clear Pricing',
+    title: 'Packages from £20',
+    text: 'See transparent prices for regular maintenance, complete detailing packages and optional extras before you enquire.',
+    href: pageUrl('pricing'),
+    cta: 'View prices',
+  },
+  {
+    label: 'Coventry Booking',
+    title: 'Request a mobile appointment',
+    text: 'Tell us your vehicle, postcode and preferred time. We confirm availability before taking the £10 booking deposit.',
+    href: pageUrl('booking'),
+    cta: 'Request a slot',
+  },
+]
+---
+
+<section class="bg-black-soft px-6 py-24" aria-labelledby="home-services-heading">
+  <div class="mx-auto max-w-6xl">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="section-label">PREMIUM VEHICLE CARE</p>
+      <h2 id="home-services-heading" class="mt-4 font-editorial text-gold-metallic text-4xl md:text-6xl">
+        Car Detailing Built Around Your Vehicle
+      </h2>
+      <p class="text-luxe-body mt-6 text-lg leading-8">
+        Ramz DETAILZ provides appointment-based car detailing and mobile valeting in Coventry. Every package is designed to improve the finish, cleanliness and comfort of your vehicle without rushed shortcuts.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      {highlights.map((item) => (
+        <article class="card-gold flex flex-col rounded-xl p-7">
+          <p class="section-label">{item.label}</p>
+          <h3 class="mt-4 font-editorial text-2xl text-gold">{item.title}</h3>
+          <p class="text-luxe-body mt-4 flex-1 leading-7">{item.text}</p>
+          <a href={item.href} class="mt-6 font-semibold text-gold hover:underline">{item.cta} →</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

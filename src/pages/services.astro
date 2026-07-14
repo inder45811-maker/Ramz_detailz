@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import FaqSection from '../components/FaqSection.astro'
+import PageHero from '../components/PageHero.astro'
+import ServiceComparison from '../components/ServiceComparison.astro'
+import Services from '../components/Services.jsx'
+import { serviceFaqs } from '../data/faqs'
+import { createPageSchema, serviceSchemas } from '../data/seo'
+import { pageUrl } from '../site'
+
+const title = 'Car Detailing Services Coventry | Ramz DETAILZ'
+const description = 'Explore interior deep cleaning, snow foam washes, clay-bar polishing, mini valets and mobile car detailing services from Ramz DETAILZ in Coventry.'
+const schema = createPageSchema({ title, description, page: 'services', additional: serviceSchemas })
+---
+
+<BaseLayout title={title} description={description} currentPage="services" schema={schema}>
+  <PageHero
+    eyebrow="DETAILING IN COVENTRY"
+    title="Car Detailing Services in Coventry"
+    intro="Maintenance care, deep cleaning and paint-enhancement packages delivered with careful processes and clear expectations."
+    currentPage="Services"
+  />
+  <Services />
+  <ServiceComparison />
+
+  <section class="bg-black-soft px-6 py-24" aria-labelledby="service-guide-heading">
+    <div class="mx-auto max-w-5xl">
+      <p class="section-label">CHOOSING YOUR SERVICE</p>
+      <h2 id="service-guide-heading" class="mt-4 font-editorial text-gold-metallic text-4xl md:text-6xl">
+        The Right Detail for Your Vehicle
+      </h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <article class="card-gold rounded-xl p-6">
+          <h3 class="font-detailz text-2xl text-gold">Regular Maintenance</h3>
+          <p class="text-luxe-body mt-4 leading-7">Best for vehicles already in reasonable condition. Choose the exterior maintenance wash, interior clean or combined mini valet.</p>
+        </article>
+        <article class="card-gold rounded-xl p-6">
+          <h3 class="font-detailz text-2xl text-gold">Deep Cleaning</h3>
+          <p class="text-luxe-body mt-4 leading-7">Designed for built-up dirt, stained upholstery and neglected interiors using shampoo extraction, steam and leather care where suitable.</p>
+        </article>
+        <article class="card-gold rounded-xl p-6">
+          <h3 class="font-detailz text-2xl text-gold">Exterior Enhancement</h3>
+          <p class="text-luxe-body mt-4 leading-7">Adds clay-bar decontamination and a stage-one polish after the safe wash process to improve gloss and reduce light paint defects.</p>
+        </article>
+      </div>
+      <div class="mt-10 rounded-xl border border-gold/30 bg-black-soft p-6 text-center">
+        <p class="text-luxe-body leading-7">Unsure which package suits the vehicle? Send photos and condition details with your enquiry so we can recommend the most appropriate option.</p>
+        <a href={pageUrl('booking')} class="btn-gold mt-6 inline-block rounded-full px-8 py-3">Request a Recommendation</a>
+      </div>
+    </div>
+  </section>
+  <FaqSection
+    title="Car Detailing Services: Questions Answered"
+    intro="Direct answers about Coventry mobile detailing, package scope and choosing the right level of care."
+    items={serviceFaqs}
+    tone="black"
+  />
+</BaseLayout>

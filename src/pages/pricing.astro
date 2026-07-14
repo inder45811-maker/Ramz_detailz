@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import FaqSection from '../components/FaqSection.astro'
+import PageHero from '../components/PageHero.astro'
+import Pricing from '../components/Pricing.jsx'
+import { pricingFaqs } from '../data/faqs'
+import { createPageSchema, offerCatalogSchema } from '../data/seo'
+
+const title = 'Car Detailing Prices Coventry from £20 | Ramz DETAILZ'
+const description = 'See Coventry car detailing prices: maintenance washes from £20, interior cleans from £30 and full detailing packages from £100. A £10 booking deposit applies.'
+const schema = createPageSchema({ title, description, page: 'pricing', additional: [offerCatalogSchema] })
+---
+
+<BaseLayout title={title} description={description} currentPage="pricing" schema={schema}>
+  <PageHero
+    eyebrow="TRANSPARENT PRICING"
+    title="Car Detailing Prices"
+    intro="Compare maintenance packages, complete details and optional extras before requesting your Coventry appointment."
+    currentPage="Pricing"
+  />
+  <Pricing />
+  <FaqSection
+    title="Car Detailing Pricing: Questions Answered"
+    intro="Published Coventry package prices, deposit requirements and condition-dependent extras in plain language."
+    items={pricingFaqs}
+  />
+</BaseLayout>

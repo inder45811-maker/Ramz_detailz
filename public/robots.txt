@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inder45811-maker.github.io/Ramz_detailz/sitemap-index.xml

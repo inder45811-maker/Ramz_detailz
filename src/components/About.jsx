@@ -1,8 +1,8 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
 
 const stats = [
-  { value: '100+', label: 'Vehicles Detailed' },
-  { value: '5★', label: 'Star Rated' },
+  { value: '£20', label: 'Packages From' },
+  { value: '£10', label: 'Booking Deposit' },
   { value: 'CV6', label: 'Coventry Based' },
 ]
 
@@ -45,9 +45,9 @@ export default function About() {
             maxWidth: '42rem',
           }}
         >
-          Ramz DETAILZ is Coventry&apos;s go-to for premium vehicle care. From daily
-          drivers to show cars, we treat every vehicle with the same level of
-          detail and respect. No shortcuts. No swirl marks. Just results.
+          Ramz DETAILZ provides appointment-based vehicle care in Coventry. From daily
+          drivers to show cars, every service is approached with careful methods and
+          respect for the vehicle, with the package scope agreed before work begins.
         </p>
 
         <div className="flex justify-center gap-12 flex-wrap mt-12">

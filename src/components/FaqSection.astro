@@ -1,0 +1,44 @@
+---
+interface FaqItem {
+  question: string
+  answer: string
+}
+
+interface Props {
+  eyebrow?: string
+  title?: string
+  intro?: string
+  items?: FaqItem[]
+  tone?: 'black' | 'soft'
+}
+
+const {
+  eyebrow = 'COMMON QUESTIONS',
+  title = 'Questions Answered',
+  intro,
+  items = [],
+  tone = 'soft',
+}: Props = Astro.props
+
+const backgroundClass = tone === 'black' ? 'bg-black' : 'bg-black-soft'
+const headingId = `faq-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`
+---
+
+<section class={`${backgroundClass} px-6 py-24`} aria-labelledby={headingId}>
+  <div class="mx-auto max-w-5xl">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="section-label">{eyebrow}</p>
+      <h2 id={headingId} class="mt-4 font-editorial text-gold-metallic text-4xl md:text-6xl">{title}</h2>
+      {intro && <p class="text-luxe-body mt-5 text-lg leading-8">{intro}</p>}
+    </div>
+
+    <div class="mt-12 grid gap-6 md:grid-cols-3">
+      {items.map(({ question, answer }) => (
+        <article class="card-gold rounded-xl p-6">
+          <h3 class="font-editorial text-2xl leading-tight text-gold">{question}</h3>
+          <p class="text-luxe-body mt-4 leading-7">{answer}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,51 @@
+---
+import {
+  EMAIL,
+  INSTAGRAM_URL,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  pageUrl,
+  waLink,
+} from '../site'
+---
+
+<section class="bg-black px-6 py-24" aria-labelledby="contact-heading">
+  <div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
+    <div>
+      <p class="section-label">GET IN TOUCH</p>
+      <h2 id="contact-heading" class="mt-4 font-editorial text-gold-metallic text-4xl md:text-6xl">Contact Ramz DETAILZ</h2>
+      <p class="text-luxe-body mt-6 max-w-xl text-lg leading-8">
+        Contact us for detailing availability, mobile-service coverage, vehicle sales enquiries or a quote for condition-dependent work.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href={pageUrl('booking')} class="btn-gold rounded-full px-7 py-3">Request a Booking</a>
+        <a href={waLink('Hi Ramz, I have a question about your detailing services')} target="_blank" rel="noopener noreferrer" class="btn-outline rounded-full px-7 py-3">WhatsApp Us</a>
+      </div>
+    </div>
+
+    <address class="card-gold not-italic rounded-xl p-7">
+      <dl class="space-y-6">
+        <div>
+          <dt class="section-label">PHONE</dt>
+          <dd class="mt-2"><a class="text-luxe-body text-lg hover:text-gold" href={`tel:${PHONE_HREF}`}>{PHONE_DISPLAY}</a></dd>
+        </div>
+        <div>
+          <dt class="section-label">EMAIL</dt>
+          <dd class="mt-2"><a class="text-luxe-body text-lg hover:text-gold" href={`mailto:${EMAIL}`}>{EMAIL}</a></dd>
+        </div>
+        <div>
+          <dt class="section-label">INSTAGRAM</dt>
+          <dd class="mt-2"><a class="text-luxe-body text-lg hover:text-gold" href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">@ramz_detailz</a></dd>
+        </div>
+        <div>
+          <dt class="section-label">SERVICE AREA</dt>
+          <dd class="text-luxe-body mt-2 text-lg">Coventry, United Kingdom · CV6</dd>
+        </div>
+        <div>
+          <dt class="section-label">AVAILABILITY</dt>
+          <dd class="text-luxe-body mt-2 text-lg">By appointment · Confirmed directly</dd>
+        </div>
+      </dl>
+    </address>
+  </div>
+</section>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { pageUrl } from '../site'
+
+const title = 'Page Not Found | Ramz DETAILZ'
+const description = 'The requested Ramz DETAILZ page could not be found.'
+---
+
+<BaseLayout title={title} description={description} currentPage="home" noindex={true}>
+  <section class="flex min-h-[70vh] items-center bg-black px-6 pb-24 pt-40 text-center">
+    <div class="mx-auto max-w-2xl">
+      <p class="section-label">404 · PAGE NOT FOUND</p>
+      <h1 class="mt-4 font-editorial text-gold-metallic text-5xl md:text-7xl">That Page Has Moved</h1>
+      <p class="text-luxe-body mt-6 text-lg leading-8">Use the main navigation or return to the Ramz DETAILZ homepage.</p>
+      <a href={pageUrl('home')} class="btn-gold mt-8 inline-block rounded-full px-8 py-4">Return Home</a>
+    </div>
+  </section>
+</BaseLayout>

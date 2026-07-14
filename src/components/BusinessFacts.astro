@@ -1,0 +1,46 @@
+---
+import {
+  BUSINESS_NAME,
+  CONTENT_LAST_REVIEWED_DISPLAY,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  pageUrl,
+} from '../site'
+
+const facts = [
+  ['Business', BUSINESS_NAME],
+  ['Primary service', 'Car detailing and mobile valeting'],
+  ['Based in', 'CV6, Coventry, United Kingdom'],
+  ['Service model', 'Appointment-based mobile vehicle care'],
+  ['Published package prices', '£20–£180, plus condition-dependent extras'],
+  ['Booking deposit', '£10 after the requested slot is accepted'],
+]
+---
+
+<section class="bg-black px-6 py-24" aria-labelledby="business-facts-heading">
+  <div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+    <div>
+      <p class="section-label">COVENTRY DETAILING AT A GLANCE</p>
+      <h2 id="business-facts-heading" class="mt-4 font-editorial text-gold-metallic text-4xl md:text-6xl">
+        Clear Facts About Ramz DETAILZ
+      </h2>
+      <p class="text-luxe-body mt-6 text-lg leading-8">
+        Ramz DETAILZ is a Coventry-based vehicle-care business providing maintenance valeting, deep interior cleaning and exterior enhancement by appointment. Mobile availability is checked from the customer&apos;s service postcode before confirmation.
+      </p>
+      <div class="mt-7 flex flex-wrap gap-4">
+        <a href={pageUrl('services')} class="btn-outline rounded-full px-7 py-3">Explore Services</a>
+        <a href={`tel:${PHONE_HREF}`} class="btn-gold rounded-full px-7 py-3">Call {PHONE_DISPLAY}</a>
+      </div>
+      <p class="text-luxe-muted mt-6 text-xs">Business information reviewed {CONTENT_LAST_REVIEWED_DISPLAY}.</p>
+    </div>
+
+    <dl class="card-gold overflow-hidden rounded-xl">
+      {facts.map(([term, detail], index) => (
+        <div class={`grid gap-2 p-5 sm:grid-cols-[0.8fr_1.2fr] ${index ? 'border-t border-gold/20' : ''}`}>
+          <dt class="section-label">{term}</dt>
+          <dd class="text-luxe-body leading-7">{detail}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

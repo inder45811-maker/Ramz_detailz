@@ -1,0 +1,55 @@
+---
+import { pageUrl } from '../site'
+
+const services = [
+  ['3 Stage Exterior Maintenance Wash', 'Routine exterior care', 'Pre-wash, snow foam, contact wash, wheels, tyres, glass and fuel cap', '£20'],
+  ['Interior Maintenance Clean', 'Routine interior care', 'Interior vacuum, surfaces, seats, glass, door jambs and boot', '£30'],
+  ['Mini Valet In & Out', 'Routine inside and outside care', 'Both maintenance packages in one appointment', '£45'],
+  ['Full Interior Deep Clean', 'Built-up dirt and stained upholstery', 'Interior maintenance plus wet-vac extraction, steam and suitable leather care', '£100'],
+  ['Full Exterior Package', 'Paint decontamination and gloss improvement', 'Exterior maintenance plus clay-bar treatment and a stage-one machine polish', '£100'],
+  ['Both Full Packages Combined', 'Complete interior and exterior treatment', 'The full interior and full exterior packages together', '£180'],
+]
+---
+
+<section class="bg-black px-6 py-24" aria-labelledby="service-comparison-heading">
+  <div class="mx-auto max-w-6xl">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="section-label">SERVICE COMPARISON</p>
+      <h2 id="service-comparison-heading" class="mt-4 font-editorial text-gold-metallic text-4xl md:text-6xl">
+        Compare Coventry Detailing Packages
+      </h2>
+      <p class="text-luxe-body mt-5 text-lg leading-8">
+        Use this comparison to match the vehicle&apos;s condition with the most suitable published package.
+      </p>
+    </div>
+
+    <div class="mt-12 overflow-x-auto rounded-xl border border-gold/30">
+      <table class="w-full min-w-[780px] border-collapse text-left">
+        <caption class="sr-only">Comparison of Ramz DETAILZ car-detailing packages, intended use, included work and published price</caption>
+        <thead class="bg-gold/10">
+          <tr>
+            <th scope="col" class="px-5 py-4 font-detailz text-sm tracking-wider text-gold">SERVICE</th>
+            <th scope="col" class="px-5 py-4 font-detailz text-sm tracking-wider text-gold">BEST FOR</th>
+            <th scope="col" class="px-5 py-4 font-detailz text-sm tracking-wider text-gold">KEY WORK</th>
+            <th scope="col" class="px-5 py-4 font-detailz text-sm tracking-wider text-gold">PRICE</th>
+          </tr>
+        </thead>
+        <tbody>
+          {services.map(([name, bestFor, includes, price], index) => (
+            <tr class={index ? 'border-t border-gold/20' : ''}>
+              <th scope="row" class="px-5 py-5 font-semibold text-gold">{name}</th>
+              <td class="text-luxe-body px-5 py-5 leading-7">{bestFor}</td>
+              <td class="text-luxe-body px-5 py-5 leading-7">{includes}</td>
+              <td class="px-5 py-5 font-detailz text-xl text-gold">{price}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-luxe-muted mt-5 text-center text-sm leading-6">
+      Condition-dependent extras are listed on the <a href={pageUrl('pricing')} class="text-gold underline">pricing page</a>.
+      A service postcode and vehicle details are checked before an appointment is confirmed.
+    </p>
+  </div>
+</section>

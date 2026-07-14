@@ -54,12 +54,12 @@ const services = [
   {
     icon: <SprayIcon />,
     title: 'FULL INTERIOR DEEP CLEAN',
-    body: 'Everything in the Interior Maintenance Clean. Plus floor mats, cloth seats & upholstery shampoo using wet vac extractor. Full steam clean, leather cleaned & conditioned.',
+    body: 'Includes everything in the Interior Maintenance Clean, plus floor mats, cloth seats and upholstery shampooed with wet-vac extraction, steam cleaning, and leather cleaned and conditioned where suitable.',
   },
   {
     icon: <BubbleCarIcon />,
     title: 'FULL EXTERIOR PACKAGE',
-    body: 'Everything in the 3 Stage Exterior Maintenance Wash. Plus a Full Clay Bar & Stage 1 Polish.',
+    body: 'Includes everything in the 3 Stage Exterior Maintenance Wash, followed by clay-bar decontamination and a stage-one machine polish.',
   },
   {
     icon: <CarKeysIcon />,
@@ -69,7 +69,7 @@ const services = [
   {
     icon: <FoamCannonIcon />,
     title: 'SNOW FOAM WASH',
-    body: 'Pre-wash foam treatment. Safe, scratch-free cleaning for all paint types. Wheels, tyres, windows, fuel cap cleaned.',
+    body: 'Pre-wash and snow-foam treatment using careful wash methods designed to reduce wash-induced marks. Wheels, tyres, glass and the fuel cap are cleaned.',
   },
 ]
 

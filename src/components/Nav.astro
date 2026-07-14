@@ -1,0 +1,166 @@
+---
+import { pageUrl } from '../site'
+
+const { currentPage = 'home' } = Astro.props
+const links = [
+  { label: 'Home', page: 'home' },
+  { label: 'Services', page: 'services' },
+  { label: 'Pricing', page: 'pricing' },
+  { label: 'Gallery', page: 'gallery' },
+  { label: 'Booking', page: 'booking' },
+  { label: 'Contact', page: 'contact' },
+]
+---
+
+<nav data-site-nav class="fixed left-0 right-0 top-0 z-50 border-b border-transparent bg-black transition-all duration-300">
+  <div class="mx-auto flex items-center justify-between px-6 py-4 md:px-12 md:py-5" style="max-width: 1400px;">
+    <a href={pageUrl('home')} class="flex items-center" aria-label="Ramz Detailz — Home">
+      <img
+        src={`${import.meta.env.BASE_URL}hero-logo-small.webp`}
+        alt="Ramz Detailz Logo"
+        width="160"
+        height="160"
+        decoding="async"
+        class="h-10 w-auto object-contain blend-logo"
+      />
+    </a>
+
+    <ul class="m-0 hidden list-none items-center gap-8 p-0 md:flex">
+      {links.map(({ label, page }) => (
+        <li>
+          <a
+            href={pageUrl(page)}
+            aria-current={currentPage === page ? 'page' : undefined}
+            class="relative text-gold-metallic text-sm font-medium tracking-wide after:absolute after:bottom-[-2px] after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-gold after:transition-transform after:duration-300 hover:text-gold hover:after:scale-x-100"
+          >
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <button
+      data-menu-button
+      class="flex h-11 w-11 flex-col items-center justify-center gap-[5px] md:hidden"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-navigation"
+    >
+      <span class="block h-0.5 w-6 bg-gold transition-all duration-300"></span>
+      <span class="block h-0.5 w-6 bg-gold transition-all duration-300"></span>
+      <span class="block h-0.5 w-6 bg-gold transition-all duration-300"></span>
+    </button>
+  </div>
+</nav>
+
+<div
+  data-mobile-navigation
+  id="mobile-navigation"
+  class="fixed inset-0 z-40 flex flex-col items-center overflow-y-auto bg-black px-6 pb-28 pt-28 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+  aria-hidden="true"
+  inert
+>
+  <div class="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
+  <ul class="my-auto flex list-none flex-col items-center gap-8 p-0">
+    {links.map(({ label, page }, index) => (
+      <li
+        data-mobile-item
+        class="translate-y-4 opacity-0 transition-all duration-300"
+        style={`transition-delay: ${index * 50}ms;`}
+      >
+        <a
+          href={pageUrl(page)}
+          aria-current={currentPage === page ? 'page' : undefined}
+          tabindex="-1"
+          class="text-gold transition-colors duration-200 hover:text-gold-metallic"
+          style="font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.15em;"
+        >
+          {label}
+        </a>
+      </li>
+    ))}
+  </ul>
+  <img
+    src={`${import.meta.env.BASE_URL}hero-logo-medium.webp`}
+    alt=""
+    width="480"
+    height="480"
+    loading="lazy"
+    decoding="async"
+    class="absolute bottom-10 h-16 w-auto object-contain opacity-30 blend-logo"
+  />
+</div>
+
+<script>
+  const nav = document.querySelector('[data-site-nav]')
+  const button = document.querySelector('[data-menu-button]')
+  const menu = document.querySelector('[data-mobile-navigation]')
+  const items = Array.from(document.querySelectorAll('[data-mobile-item]'))
+  const menuLinks = menu
+    ? Array.from(menu.querySelectorAll('a[href]')).filter((link): link is HTMLAnchorElement => link instanceof HTMLAnchorElement)
+    : []
+
+  if (nav && button instanceof HTMLButtonElement && menu instanceof HTMLElement) {
+    const setOpen = (open: boolean, restoreFocus = false) => {
+      button.setAttribute('aria-expanded', String(open))
+      button.setAttribute('aria-label', open ? 'Close menu' : 'Open menu')
+      menu.setAttribute('aria-hidden', String(!open))
+      menu.inert = !open
+      menu.classList.toggle('opacity-0', !open)
+      menu.classList.toggle('pointer-events-none', !open)
+      menu.classList.toggle('opacity-100', open)
+      document.body.style.overflow = open ? 'hidden' : ''
+
+      const lines = Array.from(button.querySelectorAll('span'))
+      lines[0]?.classList.toggle('translate-y-[7px]', open)
+      lines[0]?.classList.toggle('rotate-45', open)
+      lines[1]?.classList.toggle('opacity-0', open)
+      lines[2]?.classList.toggle('-translate-y-[7px]', open)
+      lines[2]?.classList.toggle('-rotate-45', open)
+
+      items.forEach((item) => {
+        item.classList.toggle('translate-y-4', !open)
+        item.classList.toggle('opacity-0', !open)
+        item.classList.toggle('translate-y-0', open)
+        item.classList.toggle('opacity-100', open)
+      })
+      menuLinks.forEach((link) => link.setAttribute('tabindex', open ? '0' : '-1'))
+
+      if (open) menuLinks[0]?.focus()
+      if (!open && restoreFocus) button.focus()
+    }
+
+    button.addEventListener('click', () => setOpen(button.getAttribute('aria-expanded') !== 'true'))
+    menuLinks.forEach((link) => link.addEventListener('click', () => setOpen(false)))
+
+    document.addEventListener('keydown', (event) => {
+      if (button.getAttribute('aria-expanded') !== 'true') return
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setOpen(false, true)
+        return
+      }
+      if (event.key !== 'Tab') return
+
+      const focusable = [button, ...menuLinks]
+      const first = focusable[0]
+      const last = focusable.at(-1)
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last?.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    })
+
+    const desktop = window.matchMedia('(min-width: 768px)')
+    desktop.addEventListener('change', ({ matches }) => {
+      if (matches) setOpen(false)
+    })
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('border-gold/40', window.scrollY > 20)
+      nav.classList.toggle('backdrop-blur-md', window.scrollY > 20)
+    }, { passive: true })
+  }
+</script>

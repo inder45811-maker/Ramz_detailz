@@ -36,6 +36,33 @@ body {
   overflow-x: hidden;
 }
 
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 999;
+  transform: translateY(-200%);
+  border-radius: 0.5rem;
+  background: var(--gold);
+  color: #000;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+input,
+select,
+textarea {
+  color-scheme: dark;
+}
+
 /* Scrollbar — wider + higher track contrast for visibility */
 ::-webkit-scrollbar {
   width: 8px;
@@ -199,6 +226,14 @@ body {
   100% { transform: translateY(-80vh) rotate(360deg); opacity: 0; }
 }
 
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  50% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0); }
+}
+
+.wa-button:hover { filter: brightness(1.1); }
+.wa-button:active { filter: brightness(0.95); }
+
 .particle {
   animation: particleFloat linear infinite;
 }
@@ -206,14 +241,12 @@ body {
 /* ── Scroll reveal ─────────────────────────────────────── */
 
 .reveal {
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1;
+  transform: none;
 }
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.7s var(--ease-out-soft),
-              transform 0.7s var(--ease-out-soft);
 }
 
 /* ── Image edge blend ──────────────────────────────────── */

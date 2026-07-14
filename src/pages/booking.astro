@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import BookingRequestForm from '../components/BookingRequestForm.jsx'
+import FaqSection from '../components/FaqSection.astro'
+import PageHero from '../components/PageHero.astro'
+import { bookingFaqs } from '../data/faqs'
+
+const title = 'Request Car Detailing in Coventry | Ramz DETAILZ'
+const description = 'Request a Coventry car detailing appointment with Ramz DETAILZ. Choose a service, provide your vehicle details and receive availability confirmation on WhatsApp.'
+---
+
+<BaseLayout title={title} description={description} currentPage="booking">
+  <PageHero
+    eyebrow="APPOINTMENT REQUESTS"
+    title="Request Your Car Detail"
+    intro="Choose your service and preferred time. We confirm mobile-service availability before collecting the £10 appointment deposit."
+    currentPage="Booking"
+  />
+  <BookingRequestForm client:load />
+  <FaqSection
+    title="Booking a Detail: Questions Answered"
+    intro="How appointment requests, mobile-service checks and booking confirmation work."
+    items={bookingFaqs}
+  />
+</BaseLayout>

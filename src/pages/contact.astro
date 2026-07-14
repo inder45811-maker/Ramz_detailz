@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import ContactPanel from '../components/ContactPanel.astro'
+import FaqSection from '../components/FaqSection.astro'
+import PageHero from '../components/PageHero.astro'
+import { contactFaqs } from '../data/faqs'
+
+const title = 'Contact Ramz DETAILZ | Car Detailing Coventry'
+const description = 'Contact Ramz DETAILZ for car detailing, mobile valeting, availability and vehicle-care enquiries in Coventry. Call, email or message us on WhatsApp.'
+---
+
+<BaseLayout title={title} description={description} currentPage="contact">
+  <PageHero
+    eyebrow="COVENTRY VEHICLE CARE"
+    title="Contact Ramz DETAILZ"
+    intro="Speak directly with the team about services, quotes, mobile coverage and appointment availability."
+    currentPage="Contact"
+  />
+  <ContactPanel />
+  <FaqSection
+    title="Contact and Coverage: Questions Answered"
+    intro="Confirmed contact details, Coventry location information and help choosing a service."
+    items={contactFaqs}
+  />
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import { pageUrl } from '../site'
+
+const { eyebrow, title, intro, currentPage } = Astro.props
+---
+
+<header class="relative overflow-hidden bg-black px-6 pb-20 pt-36 md:pb-24 md:pt-44">
+  <div class="absolute inset-0 opacity-20 grain-overlay" aria-hidden="true"></div>
+  <div class="relative z-10 mx-auto max-w-5xl text-center">
+    <nav aria-label="Breadcrumb" class="mb-8 text-sm text-luxe-muted">
+      <ol class="flex items-center justify-center gap-2">
+        <li><a href={pageUrl('home')} class="hover:text-gold">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page" class="text-gold">{currentPage}</li>
+      </ol>
+    </nav>
+    <p class="section-label">{eyebrow}</p>
+    <h1 class="mt-4 max-w-full break-words font-editorial text-gold-metallic" style="font-size: clamp(40px, 7vw, 84px); line-height: 1.05;">
+      {title}
+    </h1>
+    <p class="text-luxe-body mx-auto mt-6 max-w-3xl text-lg leading-8">{intro}</p>
+  </div>
+  <div class="gold-divider absolute bottom-0 left-6 right-6"></div>
+</header>

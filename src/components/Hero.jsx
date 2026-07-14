@@ -1,32 +1,7 @@
-import { useState, useEffect } from 'react'
 import GoldParticles from './shared/GoldParticles'
-
-const STAGGER = {
-  logo: 0,
-  tagline: 0.3,
-  buttons: 0.5,
-}
-
-function useMounted(delay = 60) {
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => {
-    const t = setTimeout(() => setMounted(true), delay)
-    return () => clearTimeout(t)
-  }, [])
-  return mounted
-}
-
-function revealed(mounted, delay) {
-  return {
-    opacity: mounted ? 1 : 0,
-    transform: mounted ? 'translateY(0)' : 'translateY(16px)',
-    transition: `opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
-  }
-}
+import { pageUrl } from '../site'
 
 export default function Hero() {
-  const mounted = useMounted(60)
-
   return (
     <section
       id="home"
@@ -36,7 +11,7 @@ export default function Hero() {
       {/* ── Faded Background Logo ───────────────────────────── */}
       <div
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden"
-        style={{ opacity: mounted ? 0.25 : 0, transition: 'opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s' }}
+        style={{ opacity: 0.25 }}
       >
         <div className="relative w-full h-full flex items-center justify-center" style={{ maxWidth: '1200px' }}>
           {/* Edge fading mask */}
@@ -47,10 +22,10 @@ export default function Hero() {
             }}
           />
           <img
-            src={`${import.meta.env.BASE_URL}hero-logo.png`}
+            src={`${import.meta.env.BASE_URL}hero-logo.webp`}
             alt=""
-            width="1200"
-            height="1200"
+            width="900"
+            height="900"
             loading="eager"
             decoding="async"
             className="w-full h-full object-cover sm:object-contain scale-110 opacity-70 blend-logo"
@@ -68,10 +43,9 @@ export default function Hero() {
         style={{ maxWidth: '900px', margin: '0 auto' }}
       >
         {/* Headline */}
-        <h1
+        <p
           className="text-gold-metallic font-ramz"
           style={{
-            ...revealed(mounted, STAGGER.logo),
             fontWeight: 500,
             fontSize: 'clamp(60px, 12vw, 140px)',
             lineHeight: 1.2,
@@ -81,36 +55,34 @@ export default function Hero() {
           }}
         >
           {'‘Attention to detail.’'}
-        </h1>
+        </p>
 
-        {/* Tagline */}
-        <p
+        {/* Search-friendly page heading */}
+        <h1
           className="text-gold-metallic mt-6"
           style={{
-            ...revealed(mounted, STAGGER.tagline),
             fontFamily: "'DM Sans', sans-serif",
             fontSize: 'clamp(16px, 2.5vw, 22px)',
             letterSpacing: '0.03em',
             textShadow: '0 2px 4px rgba(0,0,0,0.8)'
           }}
         >
-          Premium Vehicle Detailing &amp; Valeting — Coventry, UK
-        </p>
+          Car Detailing &amp; Mobile Valeting in Coventry
+        </h1>
 
         {/* CTA buttons */}
         <div
           className="mt-10 flex flex-col sm:flex-row items-center gap-5"
-          style={revealed(mounted, STAGGER.buttons)}
         >
           <a
-            href="#booking"
+            href={pageUrl('booking')}
             className="btn-gold py-4 px-10 rounded-full font-bold text-[14px] tracking-widest uppercase shadow-[0_0_20px_rgba(212,175,55,0.2)]"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
-            Book Now
+            Request Booking
           </a>
           <a
-            href="#gallery"
+            href={pageUrl('gallery')}
             className="btn-outline py-4 px-10 rounded-full font-bold text-[14px] tracking-widest uppercase"
             style={{ fontFamily: "'DM Sans', sans-serif", border: '1px solid rgba(255,255,255,0.2)' }}
           >

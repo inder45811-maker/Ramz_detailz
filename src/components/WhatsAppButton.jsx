@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { waLink } from '../constants'
 
 const WA_HREF = waLink('Hi Ramz, I found you through your website')
@@ -17,53 +16,19 @@ const WhatsAppSVG = () => (
   </svg>
 )
 
-const pulseKeyframes = `
-@keyframes wa-pulse {
-  0%   { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5); }
-  50%  { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .wa-pulse { animation: none !important; }
-}
-`
-
 export default function WhatsAppButton() {
-  const [hovered, setHovered] = useState(false)
-  const [active, setActive] = useState(false)
-
-  useEffect(() => {
-    if (document.getElementById('wa-pulse-style')) return
-    const style = document.createElement('style')
-    style.id = 'wa-pulse-style'
-    style.textContent = pulseKeyframes
-    document.head.appendChild(style)
-    return () => {
-      const el = document.getElementById('wa-pulse-style')
-      if (el) el.remove()
-    }
-  }, [])
-
-  const brightness = active ? 0.95 : hovered ? 1.1 : 1
-
   return (
     <a
       href={WA_HREF}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Message us on WhatsApp"
-      className="wa-pulse"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => { setHovered(false); setActive(false) }}
-      onMouseDown={() => setActive(true)}
-      onMouseUp={() => setActive(false)}
-      onTouchStart={() => setActive(true)}
-      onTouchEnd={() => setActive(false)}
+      className="wa-button wa-pulse"
       style={{
         position: 'fixed',
         bottom: '24px',
         right: '24px',
-        zIndex: 100,
+        zIndex: 30,
         display: 'inline-flex',
         alignItems: 'center',
         gap: '10px',
@@ -73,7 +38,6 @@ export default function WhatsAppButton() {
         padding: '12px 20px',
         textDecoration: 'none',
         cursor: 'pointer',
-        filter: `brightness(${brightness})`,
         transition: 'filter 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
         animation: 'wa-pulse 2.4s ease-in-out infinite',
         minHeight: '48px',

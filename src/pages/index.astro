@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import About from '../components/About.jsx'
+import BusinessFacts from '../components/BusinessFacts.astro'
+import Hero from '../components/Hero.jsx'
+import HomeHighlights from '../components/HomeHighlights.astro'
+
+const title = 'Car Detailing & Mobile Valeting Coventry | Ramz DETAILZ'
+const description = 'Premium car detailing and mobile valeting in Coventry, from maintenance washes to deep interior cleans and full exterior packages. View prices and contact Ramz DETAILZ.'
+---
+
+<BaseLayout title={title} description={description} currentPage="home">
+  <Hero />
+  <HomeHighlights />
+  <BusinessFacts />
+  <About />
+</BaseLayout>

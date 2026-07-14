@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Gallery from '../components/Gallery.jsx'
+import PageHero from '../components/PageHero.astro'
+
+const title = 'Car Detailing Gallery Coventry | Ramz DETAILZ'
+const description = 'The Ramz DETAILZ Coventry car detailing portfolio is being prepared with genuine before-and-after vehicle photographs.'
+---
+
+<BaseLayout title={title} description={description} currentPage="gallery" noindex={true}>
+  <PageHero
+    eyebrow="OUR PORTFOLIO"
+    title="Coventry Car Detailing Gallery"
+    intro="Genuine before-and-after photographs will be published here as the portfolio is prepared."
+    currentPage="Gallery"
+  />
+  <Gallery />
+</BaseLayout>

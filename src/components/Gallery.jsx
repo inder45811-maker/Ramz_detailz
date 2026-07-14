@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { pageUrl } from '../site'
 
 const galleryItems = [
   {
@@ -85,12 +86,12 @@ function GalleryCard({ item }) {
           {item.name}
         </span>
         <a
-          href="#booking"
-          aria-label={`Book ${item.name.toLowerCase()}`}
+          href={pageUrl('booking')}
+          aria-label={`Request ${item.name.toLowerCase()}`}
           className="text-[#D4AF37] text-xs font-bold hover:underline whitespace-nowrap ml-2"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
-          Book This →
+          Request This →
         </a>
       </div>
     </div>

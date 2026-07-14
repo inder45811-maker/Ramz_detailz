@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
+import { pageUrl } from '../site'
 
 /* ── Shared sub-components ─────────────────────────────────────── */
 
@@ -49,12 +50,12 @@ function MaintenanceCard() {
         backgroundColor: '#0A0A0A',
       }}
     >
-      <p
+      <h3
         className="font-detailz mb-3"
         style={{ color: '#D4AF37', letterSpacing: '0.25em', fontSize: '0.85rem' }}
       >
         MAINTENANCE
-      </p>
+      </h3>
 
       <div
         className="font-detailz mb-5"
@@ -74,7 +75,7 @@ function MaintenanceCard() {
         <PriceItem
           price="£30"
           name="Interior Maintenance Clean"
-          description="Rubbish removed, ashtrays/door bins cleaned, dashboard/seats/rails cleaned, interior vacuumed, glass/mirrors/door jams/boot cleaned."
+          description="Rubbish removed, ashtrays and door bins cleaned, dashboard, seats and rails cleaned, interior vacuumed, plus glass, mirrors, door jambs and boot cleaned."
         />
         <PriceItem
           price="£45"
@@ -114,12 +115,12 @@ function FullPackagesCard() {
         MOST POPULAR
       </div>
 
-      <p
+      <h3
         className="font-detailz mb-3"
         style={{ color: '#D4AF37', letterSpacing: '0.25em', fontSize: '0.85rem' }}
       >
         FULL PACKAGES
-      </p>
+      </h3>
 
       <div
         className="font-detailz mb-5"
@@ -134,12 +135,12 @@ function FullPackagesCard() {
         <PriceItem
           price="£100"
           name="Full Interior Deep Clean"
-          description="Everything in Interior Maintenance plus floor mats, cloth seats & upholstery shampoo using wet vac/extractor, full steam clean, leather cleaned & conditioned."
+          description="Everything in Interior Maintenance, plus floor mats, cloth seats and upholstery shampooed with wet-vac extraction, steam cleaning, and leather cleaned and conditioned where suitable."
         />
         <PriceItem
           price="£100"
           name="Full Exterior Package"
-          description="Everything in 3 Stage Exterior plus Full Clay Bar & Stage 1 Polish."
+          description="Everything in the 3 Stage Exterior wash, plus clay-bar decontamination and a stage-one machine polish."
         />
         <PriceItem
           price="£180"
@@ -161,12 +162,12 @@ function ExtrasCard() {
         backgroundColor: '#0A0A0A',
       }}
     >
-      <p
+      <h3
         className="font-detailz mb-3"
         style={{ color: '#D4AF37', letterSpacing: '0.25em', fontSize: '0.85rem' }}
       >
         EXTRAS
-      </p>
+      </h3>
 
       <div
         className="font-detailz mb-5"
@@ -182,12 +183,12 @@ function ExtrasCard() {
         <PriceItem
           price="£10–£20"
           name="Exhaust Polish"
-          description="Price depending on vehicle."
+          description="Final price depends on the vehicle and condition."
         />
         <PriceItem
           price="Price on Request"
           name="Pet Hair Removal"
-          description="Price depending on location and condition."
+          description="Final price depends on the affected areas and condition."
         />
       </ul>
     </div>
@@ -281,13 +282,13 @@ export default function Pricing() {
             className="text-luxe-muted"
             style={{ fontSize: '0.8rem', lineHeight: 1.6, paddingLeft: '1.75rem' }}
           >
-            A £10 deposit is required to confirm all bookings. See terms and conditions for more information.
+            A £10 deposit is required to confirm a booking. The appointment remains unconfirmed until the slot is accepted and the deposit is received.
           </p>
         </div>
 
         <div className="flex justify-center mt-8">
           <a
-            href="#booking"
+            href={pageUrl('booking')}
             className="btn-gold"
             style={{
               display: 'inline-block',
@@ -296,7 +297,7 @@ export default function Pricing() {
               textDecoration: 'none',
             }}
           >
-            Book Your Slot
+            Request Your Slot
           </a>
         </div>
       </div>
