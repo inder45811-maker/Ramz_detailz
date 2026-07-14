@@ -238,9 +238,7 @@ body {
   }
   .particle,
   .animate-pulse-glow,
-  .animate-float-up,
-  .animate-dice-sway,
-  .animate-foam-drift {
+  .animate-float-up {
     animation: none !important;
     opacity: 1 !important;
   }

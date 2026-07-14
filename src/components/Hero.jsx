@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import GoldParticles from './shared/GoldParticles'
-import DiceOrnament from './shared/DiceOrnament'
-import SnowFoamCannon from './shared/SnowFoamCannon'
 
 const STAGGER = {
   logo: 0,
@@ -63,16 +61,6 @@ export default function Hero() {
 
       {/* ── Gold particles layer ────────────────────────────── */}
       <GoldParticles count={16} />
-
-      {/* ── Decorative ornaments — desktop only, low opacity ── */}
-      <DiceOrnament
-        className="hidden lg:flex absolute top-20 right-12 z-10 opacity-70"
-        scale={1.1}
-      />
-      <SnowFoamCannon
-        className="hidden lg:block absolute bottom-12 left-8 z-10 opacity-40"
-        size={0.85}
-      />
 
       {/* ── Main content ────────────────────────────────────── */}
       <div

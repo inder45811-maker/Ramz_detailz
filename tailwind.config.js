@@ -38,8 +38,6 @@ export default {
       animation: {
         'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
         'float-up': 'floatUp 4s ease-in-out infinite',
-        'dice-sway': 'diceSway 3s ease-in-out infinite',
-        'foam-drift': 'foamDrift 6s ease-in-out infinite',
       },
       keyframes: {
         pulseGlow: {
@@ -49,14 +47,6 @@ export default {
         floatUp: {
           '0%, 100%': { transform: 'translateY(0px)', opacity: '0.6' },
           '50%': { transform: 'translateY(-20px)', opacity: '1' },
-        },
-        diceSway: {
-          '0%, 100%': { transform: 'rotate(-3deg) translateY(0px)' },
-          '50%': { transform: 'rotate(3deg) translateY(-8px)' },
-        },
-        foamDrift: {
-          '0%, 100%': { transform: 'translateX(0) scaleX(1)', opacity: '0.7' },
-          '50%': { transform: 'translateX(10px) scaleX(1.05)', opacity: '0.9' },
         },
       },
       boxShadow: {
